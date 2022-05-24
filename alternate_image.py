@@ -37,7 +37,6 @@ def start(
             image_abs_path = f"{os.path.join(source, element)}"
             print(f"Image [{counter + 1}/{len(image_lst)}]: {image_abs_path}")
 
-
             im = Image.open(image_abs_path) # Supports many different formats.
 
             error_msg = ""
