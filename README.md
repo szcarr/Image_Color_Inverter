@@ -22,7 +22,7 @@ Specifies the target image or the directory with images to perform operations on
 <h2>--save-location</h2>
 <p>
 Specifies the directory to save the images that have been processed. Please use absolute path.
-By default the path is <code>./saved/runs<n></code>.
+By default the path is <code>./saved/runsN</code>.
 
 > python3 alternate_image.py --source some/dir/with/images/ --save-location the/directory/to/save/images/
 </p>
