@@ -30,7 +30,7 @@ def start(
         save_location = do_save(save_location)
 
     counter = 0
-    starttime = timeit.default_timer()
+    start_time = timeit.default_timer()
 
     for element in image_lst:
         if element != "":
@@ -58,7 +58,7 @@ def start(
             else:
                 im.save(os.path.join(save_location, f"in_{element}"))
 
-    process_time = timeit.default_timer() - starttime
+    process_time = timeit.default_timer() - start_time
     print(f"Processed {counter} images in: {round(process_time, 4)} seconds.")
 
 def do_save(save_location):
