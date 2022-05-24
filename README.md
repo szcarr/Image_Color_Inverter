@@ -15,7 +15,7 @@ User can combine different parameters.
 <p>
 Specifies the target image or the directory with images to perform operations on. Please use absolute path.
   
-> python3 alternate_image.py --source image.jpg
+> python3 alternate_image.py --source image.jpg<br>
 > python3 alternate_image.py --source some/dir/with/images/
 </p>
 
