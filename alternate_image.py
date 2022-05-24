@@ -4,6 +4,7 @@ from pathlib import Path
 import timeit
 import argparse
 import os
+import platform
 
 DEFAULTSAVELOCATION = os.path.join(Path(__file__).parent, "saved")
 
@@ -33,17 +34,25 @@ def start(
 
     for element in image_lst:
         if element != "":
-            print(f"Image [{counter + 1}/{len(image_lst)}]")
-
             image_abs_path = f"{os.path.join(source, element)}"
+            print(f"Image [{counter + 1}/{len(image_lst)}]: {image_abs_path}")
+
+
             im = Image.open(image_abs_path) # Supports many different formats.
 
-            if invert_color:
-                im = invert_colors(im)
-            if flip_vertically or flip_horizontally:
-                im = flip_image(im, flip_horizontally, flip_vertically)
-            if mirror_vertically or mirror_horizontally:
-                im = mirror_image(im, mirror_horizontally, mirror_vertically)
+            error_msg = ""
+            try:
+                if invert_color:
+                    im = invert_colors(im)
+                if flip_vertically or flip_horizontally:
+                    im = flip_image(im, flip_horizontally, flip_vertically)
+                if mirror_vertically or mirror_horizontally:
+                    im = mirror_image(im, mirror_horizontally, mirror_vertically)
+            except TypeError:
+                error_msg = f"[TypeError] Image contains invalid pixel values or is transparent."
+            finally:
+                print(f"Error while processing {image_abs_path}. {error_msg}")
+
 
             counter += 1
             if len(image_lst) == 1: # User specified only one picture
@@ -103,7 +112,7 @@ def mirror_image(im, horizontal, vertical):
 def load_sources(source):
     image_lst = []
     if os.path.isdir(source): # Is dir
-        image_lst = str(os.popen(f"ls {source}").read()).split("\n")
+        image_lst = os.listdir(os.path.join(source))
     else: # Is regular file
         image_lst.append(source)
     return image_lst
@@ -118,8 +127,7 @@ def parse_kwargs():
     parser.add_argument('--mirror-vertically', type = bool, default = False, help = "mirrors from the middle vertically")
     parser.add_argument('--mirror-horizontally', type = bool, default = False, help = "mirrors from the middle vertically")
 
-    kwargs = parser.parse_args()
-    return kwargs
+    return parser.parse_args()
 
 if __name__ == "__main__":
     kwargs = parse_kwargs()
