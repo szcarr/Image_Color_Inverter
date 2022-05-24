@@ -7,7 +7,7 @@
     <li>Mirrors image/images both vertically and horizontally</li>
 </ul>
 <br>
-User <b>must</b> specify the arg <code>--source</code> everything else is optional.<br>
+User <b>must</b> specify the arg <code>--source</code>, everything else is optional.<br>
 User can combine different parameters.
 </p>
 
