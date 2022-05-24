@@ -52,7 +52,6 @@ def start(
             finally:
                 print(f"Error while processing {image_abs_path}. {error_msg}")
 
-
             counter += 1
             if len(image_lst) == 1: # User specified only one picture
                 im.save(os.path.join(save_location, f"in_{element.split(os.path.sep)[-1]}"))
