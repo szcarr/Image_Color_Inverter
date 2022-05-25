@@ -45,12 +45,15 @@ def start(
                     im = invert_colors(im)
                 if flip_vertically or flip_horizontally:
                     im = flip_image(im, flip_horizontally, flip_vertically)
-                if mirror_vertically or mirror_horizontally:
-                    im = mirror_image(im, mirror_horizontally, mirror_vertically)
+                if mirror_vertically:
+                    im = mirror_image(im, False, mirror_vertically)
+                if mirror_horizontally:
+                    im = mirror_image(im, mirror_horizontally, False)
             except TypeError:
                 error_msg = f"[TypeError] Image contains invalid pixel values or is transparent."
             finally:
-                print(f"Error while processing {image_abs_path}. {error_msg}")
+                if error_msg != "":
+                    print(f"Error while processing {image_abs_path}. {error_msg}")
 
             counter += 1
             if len(image_lst) == 1: # User specified only one picture
@@ -74,7 +77,7 @@ def do_save(save_location):
 def flip_image(im, horizontal, vertical):
     width, height = im.size
     im = im.load()
-    
+
     new_im = Image.new(mode = "RGB", size = (width,height), color = (0, 0, 0))
     pix = new_im.load()
     for y in range(height):
