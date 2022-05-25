@@ -126,7 +126,7 @@ def parse_kwargs():
     parser.add_argument('--flip-vertically', type = bool, default = False, help = "flips specified images vertically")
     parser.add_argument('--flip-horizontally', type = bool, default = False, help = "flips specified images horizontally")
     parser.add_argument('--mirror-vertically', type = bool, default = False, help = "mirrors from the middle vertically")
-    parser.add_argument('--mirror-horizontally', type = bool, default = False, help = "mirrors from the middle vertically")
+    parser.add_argument('--mirror-horizontally', type = bool, default = False, help = "mirrors from the middle horizontally")
 
     return parser.parse_args()
 
