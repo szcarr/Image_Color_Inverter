@@ -1,6 +1,6 @@
 <h1>Images</h1>
 <p>
-<b>Small file that can:</b><br
+<b>alternate.py is a small file that can:</b><br
 <ul>
     <li>Invert image/images color.</li>
     <li>Flip image/images both vertically and horizontally</li>
