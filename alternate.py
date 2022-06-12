@@ -19,8 +19,7 @@ def start(
     ):
 
     if source == "None":
-        print(f"[ValueError] No source specified.")
-        raise ValueError
+        raise ValueError("No source specified.")
 
     image_lst = load_sources(source) # Getting strings of images from user specified source
 
