@@ -61,3 +61,13 @@ Mirrors image/images vertically:
 
 > python3 alternate.py --source some/dir/with/images/ --mirror-vertically True
 </p>
+
+<h2>--fill-with-color</h2>
+<p>
+Replaces all pixels with or within the same range as the user specified target_color parameter. User can specify the confidence which can be usefull to negate the negligible pixel differences. User must also specify which color the target_color should be replaced by.
+
+Both the color and the target-color params needs to be specified with hexcode "#FFFFFF"
+
+The example below replaces all white pixels with black pixels
+> python3 alternate.py --source some/dir/with/images/ --fill-with-color True --confidence 0.99 --target-color "#FFFFFF" --color "#000000"
+</p>
