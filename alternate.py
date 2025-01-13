@@ -194,5 +194,3 @@ def parse_kwargs():
 if __name__ == "__main__":
     kwargs = parse_kwargs()
     start(**vars(kwargs))
-
-# python3 alternate.py --source C:\Users\itwan\Pictures\test_programmering_kan_slette_seinare --fill-with-color True --confidence 0.99 --target-color "#FFFFFF" --color "#000000"
