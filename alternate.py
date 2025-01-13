@@ -103,9 +103,7 @@ def fill_color_with_color(im, target_color, color, confidence):
         for x in range(width):
             for i, e in enumerate(pixels[x, y]): # Checking for each color channel passes if each color val is within the user specified boundary.
                 if rgb_target_color[i] - rgb_target_color[i] * (1 - confidence) <= e <= rgb_target_color[i] + rgb_target_color[i] * (1 - confidence): # Logic might be flawed will look later
-                    pix[x, y] = rgb_color
-
-                    
+                    pix[x, y] = rgb_color 
     return new_im
 
 
